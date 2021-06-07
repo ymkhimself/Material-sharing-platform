@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.MaterialMapper">
+
+    <select id="findAll" resultType="com.example.demo.dto.FindAllDTO">
+        SELECT m.pk_fileid,m.file_name,u.user_name,m.create_time
+        FROM `material` AS m
+                 INNER JOIN `user` AS u
+                            ON u.user_id=m.user_id
+    </select>
+</mapper>

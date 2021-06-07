@@ -1,0 +1,30 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sharing_platform?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: root                        #数据库地址要改成自己的
+    password: 123456
+    tomcat:
+      #      最大等待中连接数量
+      max-idle: 10
+      #      最大连接活动数
+      max-active: 50
+      #      最大等待毫秒数，单位ms，超出会出错
+      max-wait: 10000
+      #      数据库连接池初始化连接数
+      initial-size: 5
+  servlet:
+    multipart:
+      max-file-size: 5GB #单个文件总的最大值 默认10MB
+      max-request-size: 1GB #上传文件总的最大值 默认10MB
+
+  jdbc:
+    template:
+      query-timeout: 2
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml   #sql映射文件位置
+  configuration:
+    map-underscore-to-camel-case: true    #开启驼峰命命，不然有的数据封装不上
+
+
